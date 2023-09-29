@@ -10,13 +10,13 @@ def get_big_mac_price_by_year(year,country_code):
     #print(year)
     #print(country_code)
     #query = f"(iso_a3 == '{country_code}' and date == '{year}')"
-    query = f"(date >= '{year}-01-01' and date <= '{year}-12-31' and iso_a3 == '{country_code}')"
+    query = f"(date >= '{year}-01-01' and date <= '{year}-12-31' and iso_a3 == '{country_code.upper()}')"
     df_result = df.query(query)
     mean_dollar_price = (round(df_result['dollar_price'].mean(),2))
     return mean_dollar_price
 
 def get_big_mac_price_by_country(country_code):
-    query = f"(iso_a3 == '{country_code}')"
+    query = f"(iso_a3 == '{country_code.upper()}')"
     df_result = df.query(query)
     dollar_price_of_country = (round(df_result['dollar_price'].mean(),2))
     return dollar_price_of_country
@@ -63,7 +63,7 @@ def get_the_most_expensive_big_mac_price_by_year(year):
 if __name__ == "__main__":
     pass # Remove this line and code your user interface
     year = int(input("Enter the year of interest: "))
-    country_code = input("Enter the country code: ").upper()
+    country_code = input("Enter the country code: ").lower()
     result_a = get_big_mac_price_by_year(year,country_code)
     print(f"The price of a bigmac in {year}, location: {country_code}, was ${result_a}.")
     
