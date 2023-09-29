@@ -74,6 +74,6 @@ if __name__ == "__main__":
 
     print(f"The cheapest bigmac in {year} was in {result_c}")
 
-    result_d = get_the_most_expensive_big_mac_price_by_year(2010)
+    result_d = get_the_most_expensive_big_mac_price_by_year(year)
 
     print(f"The most expensive bigmac in {year} was in {result_d}")
