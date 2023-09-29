@@ -7,8 +7,8 @@ df = pd.read_csv('big-mac-full-index.csv')
 # country_code = input("Enter the country code: ").upper()
 
 def get_big_mac_price_by_year(year,country_code):
-    print(year)
-    print(country_code)
+    #print(year)
+    #print(country_code)
     #query = f"(iso_a3 == '{country_code}' and date == '{year}')"
     query = f"(date >= '{year}-01-01' and date <= '{year}-12-31' and iso_a3 == '{country_code}')"
     df_result = df.query(query)
@@ -31,7 +31,7 @@ def get_the_cheapest_big_mac_price_by_year(year):
     row = df_result.loc[getmin_query]
     country_name = row['name']
     iso_a3 = row['iso_a3']
-    sentence_cheapest_big_mac = f"{country_name}({iso_a3}): ${cheapest_big_mac}."
+    sentence_cheapest_big_mac = f"{country_name}({iso_a3}): ${cheapest_big_mac}"
     return sentence_cheapest_big_mac
 
 
@@ -57,7 +57,7 @@ def get_the_most_expensive_big_mac_price_by_year(year):
     row = df_result.loc[getmax_query]
     country_name = row['name']
     iso_a3 = row['iso_a3']
-    sentence_expensive_big_mac = f"{country_name}({iso_a3}): ${expensive_big_mac}."
+    sentence_expensive_big_mac = f"{country_name}({iso_a3}): ${expensive_big_mac}"
     return sentence_expensive_big_mac
 
 if __name__ == "__main__":
